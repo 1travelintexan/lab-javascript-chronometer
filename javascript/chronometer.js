@@ -16,7 +16,7 @@ class Chronometer {
    let minutes = this.currentTime / 60
    return Math.floor(minutes) 
     }
-    console.log(minutes)
+    
   }
   getSeconds() {
     if(this.currentTime == 0){
@@ -45,7 +45,7 @@ class Chronometer {
   resetClick() {
     this.currentTime = 0
   }
-  
+
   splitClick(nums) {
     let min = this.twoDigitsNumber(this.getMinutes())
     let sec = this.twoDigitsNumber(this.getSeconds())

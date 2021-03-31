@@ -1,4 +1,10 @@
 const chronometer = new Chronometer();
+if(btnLeft.innerHTML == 'START' ){
+  chronometer.startClick()
+}else if(btnLeft.innerHTML == 'STOP'){
+  chronometer.stopClick()
+}
+
 
 // get the buttons:
 const btnLeft = document.getElementById('btnLeft');
@@ -14,15 +20,18 @@ let milUni = document.getElementById('milUni');
 let splits = document.getElementById('splits');
 
 function printTime() {
-  // ... your code goes here
+ minDec.innerHTML = minutes
+ secUni.innerHTML = seconds
 }
 
 function printMinutes() {
-  // ... your code goes here
+ minutes = chronometer.twoDigitsNumber(chronometer.getMinutes(chronometer.currentTime))
+  minUni.innerHTML = minutes
 }
 
 function printSeconds() {
-  // ... your code goes here
+  seconds = chronometer.twoDigitsNumber(chronometer.getSeconds(chronometer.currentTime)) 
+  secUni.innerHTML = seconds
 }
 
 // ==> BONUS
@@ -59,7 +68,7 @@ btnLeft.addEventListener('click', () => {
   if(btnLeft.innerHTML == 'START' ){
     btnLeft.innerHTML = 'STOP'
     btnLeft.setAttribute('.btn stop')
-    startClick()
+    chronometer.startClick(printTime)
 
      btnRight.innerHTML = 'SPLIT'
      btnRight.setAttribute('.btn split')
@@ -67,7 +76,7 @@ btnLeft.addEventListener('click', () => {
   }else if(btnLeft.innerHTML == 'STOP'){
     btnLeft.innerHTML = 'START'
     btnLeft.setAttribute('.btn start')
-    stopClick()
+    chronometer.stopClick()
 
     btnRight.innerHTML = 'RESET'
     btnRight.setAttribute('.btn reset')
@@ -79,3 +88,4 @@ btnRight.addEventListener('click', () => {
  if(btnRight.innerHTML == RESET){  
  }
 });
+
