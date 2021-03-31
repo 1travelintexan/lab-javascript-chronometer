@@ -41,9 +41,11 @@ class Chronometer {
   stopClick() {
   clearInterval(this.intervalId)
   }
+
   resetClick() {
     this.currentTime = 0
   }
+  
   splitClick(nums) {
     let min = this.twoDigitsNumber(this.getMinutes())
     let sec = this.twoDigitsNumber(this.getSeconds())
